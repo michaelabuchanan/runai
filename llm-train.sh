@@ -1,4 +1,5 @@
 #! /bin/bash
 
 pip install transformers accelerate bitsandbytes peft datasets einops torch
-python /workspace/runai-llm-train.py
+chmod +x /home/runai-llm-train.py
+python /home/runai-llm-train.py
