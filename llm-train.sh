@@ -1,5 +1,4 @@
 #!/bin/bash
 
-python -m pip install --upgrade pip
-pip install --no-cache-dir --upgrade transformers accelerate bitsandbytes==0.45.5 peft datasets einops
+pip install --no-cache-dir --upgrade transformers accelerate bitsandbytes peft datasets einops torch==1.7.0
 python /workspace/gitdata/runai/runai-llm-train.py
