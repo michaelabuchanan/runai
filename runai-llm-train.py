@@ -19,7 +19,7 @@ Imports for all the code are below. Please run first before anything else!
 #!pip install -q transformers accelerate bitsandbytes peft datasets einops torch
 
 import torch
-from transformers import AutoTokenizer, FalconForCausalLM, BitsAndBytesConfig, TrainingArguments, Trainer, DataCollatorForLanguageModeling
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, TrainingArguments, Trainer, DataCollatorForLanguageModeling
 import transformers
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 from datasets import load_dataset, Dataset
@@ -56,7 +56,7 @@ bb_config = BitsAndBytesConfig(
 
 """Below you can see the code for actually loading our model. We use another Auto class from HuggingFace to do this, this time AutoModelForCausalLM. We give it the name of the model we want to load and the BitsAndBytes configuration we just defined. When you run this code cell you should see it load in the sharded portions of the model which will take a while to download and load into memory."""
 
-falcon_model = FalconForCausalLM.from_pretrained(
+falcon_model = AutoModelForCausalLM.from_pretrained(
     model,
     quantization_config=bb_config,
     use_cache=False,
