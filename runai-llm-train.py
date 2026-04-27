@@ -24,8 +24,14 @@ import transformers
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 from datasets import load_dataset, Dataset
 from torch import inf
+import argparse
 #!git clone https://github.com/michaelabuchanan/llm_education_session_lora.git
 
+parser = argparse.ArgumentParser(description='Short sample app')
+parser.add_argument('--lr', action="store", dest='lr', default=2e-5)
+args = parser.parse_args()
+
+print("LEARNING RATE: " + str(args.lr))
 """---
 
 ###Inference with Falcon-7B
@@ -100,7 +106,7 @@ As promised we are going to finetune our Falcon model using the MedText dataset.
 training_args = TrainingArguments(
     output_dir="./finetuned_falcon",
     eval_strategy="epoch",
-    learning_rate=2e-5,
+    learning_rate=args.lr,
     weight_decay=0.01,
     fp16 = True,
     per_device_train_batch_size=1,
