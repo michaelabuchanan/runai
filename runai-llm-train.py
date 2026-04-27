@@ -177,10 +177,8 @@ def tokenizing(text, tokenizer, chunk_size, maxlen):
                     )
 
         input_ids.extend(encs['input_ids'])
-        tt_ids.extend(encs['token_type_ids'])
-        at_ids.extend(encs['attention_mask'])
 
-    return {'input_ids': input_ids, 'token_type_ids': tt_ids, 'attention_mask':at_ids}
+    return {'input_ids': input_ids}
 
 """Now we can use this function to preprocess our data. We pass the Info column we created earlier into this function as a list along with the tokenizer we intilalized ealier and receive tokens as output. We can use the HuggingFace Datasets object to easily create a dataset from these tokens and then split the dataset into train and test subsets."""
 
