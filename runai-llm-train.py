@@ -106,7 +106,7 @@ As promised we are going to finetune our Falcon model using the MedText dataset.
 training_args = TrainingArguments(
     output_dir="./finetuned_falcon",
     eval_strategy="epoch",
-    learning_rate=args.lr,
+    learning_rate=float(args.lr),
     weight_decay=0.01,
     fp16 = True,
     per_device_train_batch_size=1,
