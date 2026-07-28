@@ -2,4 +2,4 @@
 
 pip install transformers accelerate bitsandbytes peft datasets einops torch torchao
 # pip uninstall -y apex
-python /workspace/runai/runai-llm-train.py --lr=$1
+python3 /workspace/runai/runai-llm-train.py --lr=$1
